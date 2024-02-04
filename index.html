@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+
+    <!-- custom css style -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="upper-section">
+        <div class="logo d-flex justify-content-center align-items-center">
+          <img src="./assets/logo.svg" alt="" srcset="" />
+        </div>
+      </div>
+
+      <div class="down-section">
+        <!-- Task Input and Management -->
+        <form
+          id="taskForm"
+          class="add-task-input d-flex justify-content-center mx-auto">
+          <!-- Task Name field -->
+          <div class="form-group mx-sm-1 mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="taskName"
+              placeholder="Enter Your To-do List Task"
+              required />
+          </div>
+
+          <!-- Due date field -->
+          <div class="form-group mx-sm-1 mb-2">
+            <input type="date" class="form-control" id="dueDate" />
+          </div>
+
+          <!-- Priority Field -->
+          <div class="form-group mx-sm-1 mb-2">
+            <select id="priority" class="form-control">
+              <option value="priority" selected disabled>Priority</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+
+          <!-- Task add button -->
+          <button
+            type="button"
+            class="d-flex justify-content-center align-items-center"
+            onclick="addTask()">
+            <span>Add</span>
+            <img src="./assets/add.svg" alt="" />
+          </button>
+        </form>
+
+        <!-- Filter and Search -->
+        <div class="filter_section d-flex justify-content-center mx-auto gap-3">
+          <div class="form-group">
+            <label for="filterStatus">Filter by Status:</label>
+            <select
+              id="filterStatus"
+              class="form-control"
+              onchange="filterTasks()">
+              <option value="all" selected disabled>All</option>
+              <option value="to-do">To-do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="filterPriority">Filter by Priority:</label>
+            <select
+              id="filterPriority"
+              class="form-control"
+              onchange="filterTasks()">
+              <option value="all" selected disabled>All</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="search">Search:</label>
+            <input
+              type="text"
+              id="search"
+              class="form-control"
+              oninput="filterTasks()"
+              placeholder="Search Your Task" />
+          </div>
+        </div>
+
+        <!-- Task Display and Interaction -->
+        <div id="taskList"></div>
+
+        <!-- Task Count -->
+        <div id="taskCount"></div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="./script.js"></script>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
